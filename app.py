@@ -23,7 +23,8 @@ if st.button("Отправить запрос"):
     if prompt:
         with st.spinner("Обработка запроса..."):
             try:
-                response = openai.ChatCompletion.create(
+                # Используем новый интерфейс openai.chat.completions.create
+                response = openai.chat.completions.create(
                     model="gpt-3.5-turbo",
                     messages=[{"role": "user", "content": prompt}],
                     max_tokens=150
